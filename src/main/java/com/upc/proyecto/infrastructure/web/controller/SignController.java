@@ -1,9 +1,10 @@
-package com.upc.proyecto.infrastructure.controller;
+package com.upc.proyecto.infrastructure.web.controller;
 
-import com.upc.proyecto.application.service.SignService;
-import com.upc.proyecto.domain.model.sign.SignInRequest;
-import com.upc.proyecto.domain.model.sign.SignUpRequest;
-import com.upc.proyecto.infrastructure.response.JsonResponseController;
+import com.upc.proyecto.application.usecase.SignService;
+
+import com.upc.proyecto.infrastructure.web.dto.sign.SignInRequest;
+import com.upc.proyecto.infrastructure.web.dto.sign.SignUpRequest;
+import com.upc.proyecto.infrastructure.web.response.JsonResponseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

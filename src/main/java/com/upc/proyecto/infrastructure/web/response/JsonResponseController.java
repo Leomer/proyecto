@@ -1,4 +1,4 @@
-package com.upc.proyecto.infrastructure.response;
+package com.upc.proyecto.infrastructure.web.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
