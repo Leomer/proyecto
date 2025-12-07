@@ -17,7 +17,7 @@ public class SignController {
     @Autowired
     private SignService signService;
 
-    @PostMapping(SIGNIN)
+    @PostMapping(SIGN_IN)
     public JsonResponseController<Object> signInController(
             @RequestBody SignInRequest signInRequest
     ) {
@@ -33,7 +33,7 @@ public class SignController {
         return signService.SignUpService(signUpRequest);
     }
 
-    @PostMapping(SIGNUPDATE)
+    @PostMapping(SIGN_UPDATE)
     public JsonResponseController<Object> signUpdateController() {
         System.out.println("signUpdateController");
         return signService.SignUpdateService();
