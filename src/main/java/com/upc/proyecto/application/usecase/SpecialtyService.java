@@ -14,6 +14,10 @@ public class SpecialtyService {
         System.out.println("getAllSpecialty");
         var specialtyList = specialtyRepositoryPort.findAll();
 
+        if  (specialtyList.isEmpty()) {
+            return new JsonResponseController<>(0, "No hay especialidades", null);
+        }
+
         return new JsonResponseController<>(0, "", specialtyList);
     }
 }

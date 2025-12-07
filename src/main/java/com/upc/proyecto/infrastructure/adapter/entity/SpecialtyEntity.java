@@ -16,5 +16,6 @@ public class SpecialtyEntity {
     private Long specialtyId;
 
     private String specialtyName;
+    private boolean status;
 
 }

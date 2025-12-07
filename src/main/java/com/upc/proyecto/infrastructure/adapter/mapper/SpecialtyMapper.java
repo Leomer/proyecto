@@ -10,7 +10,8 @@ public class SpecialtyMapper {
     public Specialty toDomain(SpecialtyEntity specialtyEntity) {
         return new Specialty(
                 specialtyEntity.getSpecialtyId(),
-                specialtyEntity.getSpecialtyName()
+                specialtyEntity.getSpecialtyName(),
+                specialtyEntity.isStatus()
         );
     }
 }
