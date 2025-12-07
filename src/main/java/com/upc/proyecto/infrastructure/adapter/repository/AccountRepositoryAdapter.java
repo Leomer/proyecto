@@ -21,4 +21,11 @@ public class AccountRepositoryAdapter implements AccountRepositoryPort {
         Optional<AccountEntity> accountEntity = jpaAccountRepository.findByDni(dni);
         return accountEntity.map(accountMapper::toDomain);
     }
+
+    @Override
+    public Account save(Account account) {
+        AccountEntity accountEntity = accountMapper.toEntity(account);
+        accountEntity = jpaAccountRepository.save(accountEntity);
+        return accountMapper.toDomain(accountEntity);
+    }
 }

@@ -17,4 +17,15 @@ public class AccountMapper {
                 entity.isStatus()
         );
     }
+
+    public AccountEntity toEntity(Account account) {
+        return new AccountEntity(
+                account.accountId(),
+                account.dni(),
+                account.password(),
+                account.role(),
+                account.createdAt(),
+                account.status()
+        );
+    }
 }

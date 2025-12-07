@@ -5,27 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
-
 
 @Getter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "account")
-public class AccountEntity {
+@Table(name = "users")
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long accountId;
+    private Long userId;
 
-    @Column(nullable = false, unique = true, length = 20)
+    private String name;
+    private String paternalSurname;
+    private String maternalSurname;
     private String dni;
-
-    @Column(nullable = false)
-    private String password;
-
-    private String role;
-    private Instant createdAt;
-    private boolean status;
+    private String email;
 
 }
