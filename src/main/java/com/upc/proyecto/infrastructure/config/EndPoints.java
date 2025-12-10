@@ -9,4 +9,7 @@ public final class EndPoints {
 
     //-- Doctors
     public static final String REGISTER_DOCTORS ="/register-doctors";
+
+    //-- Appointment
+    public static final String REGISTER_APPOINTMENT ="/register-appointment";
 }

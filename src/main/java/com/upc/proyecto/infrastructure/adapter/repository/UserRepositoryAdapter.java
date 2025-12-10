@@ -22,6 +22,12 @@ public class UserRepositoryAdapter implements UserRepositoryPort {
     }
 
     @Override
+    public Optional<User> findByDni(String dni) {
+        Optional<UserEntity> userEntity = jpaUserRepository.findByDni(dni);
+        return userEntity.map(userMapper::toDomain);
+    }
+
+    @Override
     public User save(User user) {
         UserEntity userEntity = userMapper.toEntity(user);
         UserEntity savedUserEntity = jpaUserRepository.save(userEntity);

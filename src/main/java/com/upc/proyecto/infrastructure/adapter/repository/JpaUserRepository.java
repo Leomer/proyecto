@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface JpaUserRepository extends JpaRepository<UserEntity,String> {
     Optional<UserEntity> findFirstByDniOrEmail(String dni, String email);
+    Optional<UserEntity> findByDni(String dni);
 }
