@@ -79,7 +79,7 @@ public class AppointmentService {
 
         if (appointments.isEmpty()) return new JsonResponseController<>(0, "No appointments found", null);
 
-        return new JsonResponseController<>(200, "OK", appointments);
+        return new JsonResponseController<>(0, "OK", appointments);
     }
 
 }
