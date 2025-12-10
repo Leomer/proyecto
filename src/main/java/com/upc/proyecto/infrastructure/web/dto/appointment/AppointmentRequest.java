@@ -5,7 +5,7 @@ import java.time.Instant;
 public record AppointmentRequest(
         String dni,
         String holder,
-        String doctorId,
+        Long doctorId,
         String appointmentDate,
         String appointmentTime
 ) { }

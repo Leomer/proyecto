@@ -26,4 +26,10 @@ public class SpecialtyRepositoryAdapter implements SpecialtyRepositoryPort {
                 .map(specialtyMapper::toDomain)
                 .toList();
     }
+
+    @Override
+    public Optional<Specialty> findById(Long id) {
+        Optional<SpecialtyEntity> specialtyEntity = jpaSpecialtyRepository.findBySpecialtyId(id);
+        return specialtyEntity.map(specialtyMapper::toDomain);
+    }
 }
