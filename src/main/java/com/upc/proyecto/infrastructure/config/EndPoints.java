@@ -12,4 +12,5 @@ public final class EndPoints {
 
     //-- Appointment
     public static final String REGISTER_APPOINTMENT ="/register-appointment";
+    public static final String GET_APPOINTMENTS ="/get-appointments";
 }

@@ -4,11 +4,9 @@ import com.upc.proyecto.application.usecase.AppointmentService;
 import com.upc.proyecto.infrastructure.web.dto.appointment.AppointmentRequest;
 import com.upc.proyecto.infrastructure.web.response.JsonResponseController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import static com.upc.proyecto.infrastructure.config.EndPoints.GET_APPOINTMENTS;
 import static com.upc.proyecto.infrastructure.config.EndPoints.REGISTER_APPOINTMENT;
 
 @RestController
@@ -22,5 +20,10 @@ public class AppointmentController {
             @RequestBody AppointmentRequest appointmentRequest
     ){
         return appointmentService.AppointmentRegisterService(appointmentRequest);
+    }
+
+    @GetMapping(GET_APPOINTMENTS)
+    public JsonResponseController<Object> getAppointments() {
+        return appointmentService.GetAppointmentsService();
     }
 }

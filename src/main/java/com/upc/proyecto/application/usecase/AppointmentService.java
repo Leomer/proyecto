@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -66,8 +68,18 @@ public class AppointmentService {
 
         );
 
-        var registerAppointment = appointmentRepositoryPort.save(appointment);
+        appointmentRepositoryPort.save(appointment);
 
         return new JsonResponseController<>(0, "Cita registrada", appointmentResponse);
     }
+
+    public JsonResponseController<Object> GetAppointmentsService() {
+
+        var appointments = appointmentRepositoryPort.findAll();
+
+        if (appointments.isEmpty()) return new JsonResponseController<>(0, "No appointments found", null);
+
+        return new JsonResponseController<>(200, "OK", appointments);
+    }
+
 }
