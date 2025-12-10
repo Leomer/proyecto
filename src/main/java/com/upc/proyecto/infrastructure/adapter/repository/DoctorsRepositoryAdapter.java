@@ -7,14 +7,15 @@ import com.upc.proyecto.infrastructure.adapter.mapper.DoctorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
 public class DoctorsRepositoryAdapter implements DoctorsRepositoryPort {
-    private final JpaDoctorsRepository  jpaDoctorsRepository;
+    private final JpaDoctorsRepository jpaDoctorsRepository;
     private final DoctorMapper doctorMapper;
-
 
     @Override
     public Optional<Doctor> findByDni(String dni) {
@@ -27,5 +28,24 @@ public class DoctorsRepositoryAdapter implements DoctorsRepositoryPort {
         DoctorEntity doctorEntity = doctorMapper.toEntity(doctor);
         doctorEntity = jpaDoctorsRepository.save(doctorEntity);
         return doctorMapper.toDomain(doctorEntity);
+    }
+
+    @Override
+    public List<Doctor> findAll() {
+        List<DoctorEntity> entities = jpaDoctorsRepository.findAll();
+        return entities.stream()
+                .map(doctorMapper::toDomain)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<Doctor> findById(Long id) {
+        Optional<DoctorEntity> doctorEntity = jpaDoctorsRepository.findById(id);
+        return doctorEntity.map(doctorMapper::toDomain);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        jpaDoctorsRepository.deleteById(id);
     }
 }

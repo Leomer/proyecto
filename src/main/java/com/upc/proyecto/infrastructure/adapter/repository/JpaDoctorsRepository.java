@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface JpaDoctorsRepository extends JpaRepository<DoctorEntity,String> {
+public interface JpaDoctorsRepository extends JpaRepository<DoctorEntity,Long> {
     Optional<DoctorEntity> findByDni(String dni);
 }
