@@ -24,6 +24,12 @@ public class DoctorsRepositoryAdapter implements DoctorsRepositoryPort {
     }
 
     @Override
+    public Optional<Doctor> findByDoctorId(Long doctorId) {
+        Optional<DoctorEntity> doctorEntity = jpaDoctorsRepository.findByDoctorId(doctorId);
+        return doctorEntity.map(doctorMapper::toDomain);
+    }
+
+    @Override
     public Doctor save(Doctor doctor) {
         DoctorEntity doctorEntity = doctorMapper.toEntity(doctor);
         doctorEntity = jpaDoctorsRepository.save(doctorEntity);
